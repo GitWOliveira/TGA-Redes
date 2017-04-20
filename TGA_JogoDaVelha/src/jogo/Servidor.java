@@ -19,6 +19,7 @@ public class Servidor {
         	String estadoJogo;
         	String nome;
         	char simbolo;
+        	String nomeJogador2;
         	
         	System.out.println("Digite seu nome: ");
             nome = scanner.nextLine();
@@ -44,7 +45,10 @@ public class Servidor {
             saidaCliente.writeBytes(valor+"\n");
             
             jogo.montarTabuleiro();
-
+            jogo.mostrarTabuleiro();
+            
+            nomeJogador2 = entradaCliente.readLine();
+            
             while(true) {
                 estadoJogo = jogo.inserirSimbolo();
                 
@@ -52,7 +56,7 @@ public class Servidor {
                 
                 if(jogo.vitoria())
                 {
-                    System.out.println("O jogador "+nome+ "venceu");
+                    System.out.println("Parabens "+nome+ ", voce venceu!");
                     break;
                 }
                 
@@ -61,7 +65,7 @@ public class Servidor {
 
                 if(jogo.vitoria())
                 {
-                    System.out.println("O cliente venceu!!!");
+                    System.out.println("O jogador "+nomeJogador2+" venceu!");
                     break;
                 }
             }

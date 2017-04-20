@@ -37,6 +37,8 @@ public class Cliente {
         }
         System.out.println("Ola "+jogo.getNome()+ " voce sera o caracter: "+jogo.getSimbolo());
         jogo.montarTabuleiro();
+        jogo.mostrarTabuleiro();
+        saidaServidor.writeBytes(jogo.getNome()+"\n");
         
         while(true) {
         	estadoJogo = entradaServidor.readLine();

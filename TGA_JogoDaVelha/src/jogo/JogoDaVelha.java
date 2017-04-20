@@ -40,7 +40,7 @@ public class JogoDaVelha {
             }
         }
         
-        System.out.println("\n\n Estado atual do TABULEIRO: ");
+        System.out.println("Estado atual do TABULEIRO: \n");
         
         for(int i=0;i<3;i++){
             for(int j=0;j<3;j++){
@@ -78,56 +78,106 @@ public class JogoDaVelha {
         String estadoTabuleiro = "";
         String campo;
         int numeroCampo; 
-                
+        
             do {
-                System.out.print(this.getNome()+", eh a sua vez(1 a 9 para inserir, 0 para sair): ");
-                campo = doUsuario.readLine();
-                try {
+            	System.out.print(this.getNome()+", eh a sua vez(1 a 9 para inserir, 0 para sair): \n\n");
+            	campo = doUsuario.readLine();
+            	try {
                 	numeroCampo = Integer.parseInt(campo);
-
-                    if (Integer.signum(numeroCampo) == -1) {
-                    	numeroCampo = 10;
-                        System.out.println("Jogada invalida. Jogue Novamente.");
-                    } else if(numeroCampo == 0)
-                    {
-                        System.exit(0);
-                    }
+                	if(numeroCampo == 0){
+                		System.exit(0);
+                	}
+                	else if(numeroCampo > 9){
+                		System.out.println("Jogada invalida. Jogue Novamente.");
+                	}
+                	else if(numeroCampo < 1){
+                		System.out.println("Jogada invalida. Jogue Novamente.");
+                	}
+                	if(numeroCampo == 1){
+                		if(tabuleiro[0][0] == ' ')
+                			tabuleiro[0][0] = this.getSimbolo();
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 2){
+                		if(tabuleiro[0][1] == ' '){
+                			tabuleiro[0][1] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 3){
+                		if(tabuleiro[0][2] == ' '){
+                			tabuleiro[0][2] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 4){
+                		if(tabuleiro[1][0] == ' '){
+                			tabuleiro[1][0] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 5){
+                		if(tabuleiro[1][1] == ' '){
+                			tabuleiro[1][1] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 6){
+                		if(tabuleiro[1][2] == ' '){
+                			tabuleiro[1][2] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 7){
+                		if(tabuleiro[2][0] == ' '){
+                			tabuleiro[2][0] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 8){
+                		if(tabuleiro[2][1] == ' '){
+                			tabuleiro[2][1] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
+                	else if(numeroCampo == 9){
+                		if(tabuleiro[2][2] == ' '){
+                			tabuleiro[2][2] = this.getSimbolo();
+                			break;
+                		}
+                		else{
+                			System.out.println("Jogada invalida. Jogue Novamente.");
+                		}
+                	}
 
                 } catch (NumberFormatException e) {
                 	numeroCampo = 10;
                     System.out.println("Jogada invalida. Jogue Novamente.");
                 }
-            } while (numeroCampo > 9);
-
-        switch (numeroCampo) {
-            case (1):
-                tabuleiro[0][0] = this.getSimbolo();
-                break;
-            case (2):
-                tabuleiro[0][1] = this.getSimbolo();
-                break;
-            case (3):
-                tabuleiro[0][2] = this.getSimbolo();
-                break;
-            case (4):
-                tabuleiro[1][0] = this.getSimbolo();
-                break;
-            case (5):
-                tabuleiro[1][1] = this.getSimbolo();
-                break;
-            case (6):
-                tabuleiro[1][2] = this.getSimbolo();
-                break;
-            case (7):
-                tabuleiro[2][0] = this.getSimbolo();
-                break;
-            case (8):
-                tabuleiro[2][1] = this.getSimbolo();
-                break;
-            case (9):
-                tabuleiro[2][2] = this.getSimbolo();
-                break;
-        }
+            }while(true);
         
         mostrarTabuleiro();
 
